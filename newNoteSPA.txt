@@ -1,0 +1,31 @@
+# 0.6 exercise
+
+title User creates a new note SPA
+
+actor user
+
+user -> browser: user creates a new note
+
+seq form event handler
+note over browser:
+creates a new note object and 
+adds it to the notes list
+end note
+note over browser:
+rerenders the note list on the page
+end note
+
+browser -> user: user sees the new note
+
+note over browser:
+sends the new note to the server
+end note
+end
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_app
+note over server:
+server adds the new note
+end note
+server-->browser: Success response
+
+

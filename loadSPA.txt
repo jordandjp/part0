@@ -1,0 +1,26 @@
+# 0.5 Exercise
+
+title Loading single page app version of the notes app
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: HTML-code
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: spa.js
+
+note over browser:
+browser starts executing js-code that
+requests JSON data from server and 
+creates an empty array called notes
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{ content: "new note", date: "2022-08-01" }, ...]
+
+note over browser:
+browser executes the event handler
+that update the notes array with the
+json response data and renders notes 
+to display
+end note
